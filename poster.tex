@@ -1,0 +1,191 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NIWeek 2014 Poster by T. Reveyrand
+% www.microwave.fr
+% http://www.microwave.fr/LaTeX.html
+% ---------------------------------------
+% 
+% Original template created by:
+% Brian Amberg (baposter@brian-amberg.de)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0paper, portrait]{baposter}
+
+\usepackage[default]{lato}
+\usepackage[font=small, labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{relsize} % Used for making text smaller in some places
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % Math packages
+\usepackage{eqparbox}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{textcomp}
+\usepackage[framemethod=tikz]{mdframed}
+
+\graphicspath{{figures/}} % Directory in which figures are stored
+\definecolor{bgcol}{RGB}{255,255,255} % Border color of content boxes
+\definecolor{bordercol}{RGB}{102,120,255} % Border color of content boxes
+\definecolor{headercol1}{RGB}{102,178,255} % Background color for the header in the content boxes (left side)
+\definecolor{headercol2}{RGB}{255,178, 102} % Background color for the header in the content boxes (right side)
+\definecolor{headerfontcol}{RGB}{0,0,0} % Text color for the header text in the content boxes
+\definecolor{boxcolor}{RGB}{255,255,255} % Background color for the content in the content boxes
+
+
+\begin{document}
+
+
+\begin{poster}{
+grid=false,
+columns=2,
+background=plain,
+bgColorOne=bgcol,
+borderColor=bordercol!70, % Border color of content boxes
+headerColorOne=headercol1!70, % Background color for the header in the content boxes (left side)
+headerColorTwo=headercol2!70, % Background color for the header in the content boxes (right side)
+headerFontColor=headerfontcol, % Text color for the header text in the content boxes
+boxColorOne=boxcolor, % Background color for the content in the content boxes
+headershape=roundedright, % Specify the rounded corner in the content box headers
+headerfont=\Large\sf\bf, % Font modifiers for the text in the content box headers
+textborder=rectangle,
+headerborder=open, % Change to closed for a line under the content box headers
+boxshade=plain
+}
+{\includegraphics[scale=0.15]{Duke_QCD_Logo}} % University/lab log
+%
+%----------------------------------------------------------------------------------------
+%   TITLE AND AUTHOR NAME
+%----------------------------------------------------------------------------------------
+%
+{ \bf  \huge {Constraints on rapidity-dependent initial conditions from charged particle pseudorapidity densities and two-particle correlations at LHC }} % Poster title
+{\vspace{0.3em} \smaller Weiyao Ke, J. Scott Moreland, Jonah Bernhard, Steffen Bass --- Duke University } % Author email addresses
+
+%----------------------------------------------------------------------------------------
+%   INTRODUCTION
+%----------------------------------------------------------------------------------------
+\headerbox{I. Introduction}{name=introduction,column=0,row=0,span=1}{
+\begin{itemize} 
+\item Any state-of-the-art transport calculation of hard probes requires a modern modelling of medium evolution.
+
+\item Longitudinal fluctuation in AA, asymmetric collision of small systems and correlation of hard production vertices with medium hot-spots
+$\rightarrow$
+a realistic 3d initial condition for the 3+1 D medium evolution.
+
+\item Extend existing initial condition model (T\raisebox{-0.5ex}{R}ENTo) at mid-rapidity. Data-driven Bayesian inference calibrates model parameter with multiplicity observables.
+
+\item Calibrated model further validated by comparing IC-model+Hybrid calculation with more longitudinal observables ($v_n(\eta), r_n(\eta)$).
+\end{itemize}
+}
+
+
+%----------------------------------------------------------------------------------------
+%   CALIBRATION
+%----------------------------------------------------------------------------------------
+\headerbox{II. Model: from mid-rapidity to finite $\eta$}{name=model,column=1, row=0, span=1}{
+\begin{itemize}
+\item IC models defined at $\eta=0$ maps nuclear thickness $T_A, T_B$ to entropy density $s_0(\mathbf x_\perp)$. Extend to $\eta\neq 0$: $s(\mathbf x_\perp, \eta) = s_0(\mathbf x_\perp)g(\mathbf x_\perp, \eta)$
+\item Longitudinal profile $g(\mathbf x_\perp, \eta)$ depends on participants asymmetry; parametrize mean, std, skewness of $g(\mathbf x_\perp, \eta)$ with $T_A(\mathbf x_\perp)$ \& $T_B(\mathbf x_\perp)$.
+\begin{tabular}{c|c|c|c}
+\hline 
+Cumulants & $\mu$ & $\sigma$ & $\gamma$ \\ 
+\hline 
+\textcolor{blue}{Param-1 (relative)}  & \multirow{2}{*}{$\frac{\mu_0}{2}\ln\frac{T_A}{T_B}$} & \multirow{2}{*}{$\sigma_0$} & $\gamma_0 (T_A-T_B)/(T_A+T_B)$ \\ 
+\textcolor{red}{Param-2 (absolute)}   &  &  & $\gamma_0 (T_A-T_B)$ \\ 
+\hline 
+\end{tabular}
+\end{itemize}
+\includegraphics[scale=1.0]{regulate.pdf}
+\includegraphics[scale=1.0]{trento3d_example.pdf}
+
+}
+
+
+%----------------------------------------------------------------------------------------
+%   OTHER INSTRUMENTATION
+%----------------------------------------------------------------------------------------
+\headerbox{III. Model Calibration and Selection}{name=calibration,span=1,column=0,row=2, below=introduction}{ 
+\includegraphics[scale=1.0]{chg_particle_rapidity.pdf}
+\hfill
+\includegraphics[scale=1.0]{fw_correlation_a1.pdf}
+\begin{itemize}
+\item Bayesian model-to-data comparison model parameter inference; 3d-hydrodynamics computationally intense, compare initial condition $dS/d\eta$ with $dN_{\textrm{ch, exp}}/d\eta$, assuming: $dS/d\eta \sim dN_{\textrm{ch}}/d\eta$
+\item Both parametrisations describe $dN/d\eta$, absolute-skew model slightly better explains $dN_{\textrm{pPb}}/d\eta$.
+\item Calculate event-by-event $dN/d\eta$ fluctuation observable $\sqrt{\langle a_1^2\rangle}$ with calibrated model and hydro+UrQMD evolution. 
+Event-wise $dN/d\eta$ Legendre decomposition ($T_n(x) = \sqrt{n+1/2}P_n(x)$) within $[-Y, Y]$.
+\begin{eqnarray}
+	\frac{dN}{d\eta} = \left\langle\frac{dN}{d\eta}\right\rangle \left( 1 + \sum a_n T_n\left(\frac{\eta}{Y}\right)\right).
+\end{eqnarray}
+$\langle a_m a_n \rangle$ extracted from two particle $\eta$-correlation $C(\eta_1, \eta_2)$.
+\item Absolute-skew model fails to describe the data; relative-skew model describes $\langle a_1^2\rangle$ within $20\%$ up to $50\%$ centrality.
+\item \colorbox{orange!30}{Comparison to multiplicity observables favors relative-skew model.}
+\end{itemize}
+}
+
+\headerbox{IV. Hydro+UrQMD Simulation Set-up}{name=hybrid,span=1,column=0,row=2, below=calibration}{
+3+1 D viscous hydrodynamics. Zero bulk viscosity; constant shear viscosity for hydro phase, $\eta/s = 0.2-0.3$. Transition from hydro to UrQMD at $T_s = 151$~MeV; below critical temperature $T_c \sim 154$~MeV.
+
+}
+
+\headerbox{V. $\eta$-dependent observables of relative-$\gamma$ model}{name=observable,span=1,column=1,row=1, below=model}{
+\begin{center}
+\includegraphics[scale=.9]{vn_eta.pdf}
+\end{center}
+\begin{center}
+\includegraphics[scale=.9]{evt_pln_decorr.pdf}
+\end{center}
+
+Calibrated relative-skew model well reproduce $\eta$-differential flows (ALICE $p_\textrm{T}>0, \eta/s=0.3$) and event-plane decorrelations (CMS); the latter characterized by factorization ratio,
+\begin{eqnarray}
+r_n(\eta^a, \eta^b) = \frac{\langle\langle \vec{Q}_n(-\eta_a)\vec{Q}_n(\eta_b) \rangle\rangle}{\langle\langle \vec{Q}_n(\eta_a)\vec{Q}_n(\eta_b) \rangle\rangle} \sim \frac{\langle \cos(n(\Psi_{-\eta_a}-\Psi_{\eta_b})\rangle}{\langle \cos(n(\Psi_{\eta_a}-\Psi_{\eta_b})\rangle}
+\end{eqnarray}
+}
+
+
+%----------------------------------------------------------------------------------------
+%   CONCLUSION
+%----------------------------------------------------------------------------------------
+\headerbox{VI. Conclusion}{name=conclusion,column=0, row=2,below=hybrid,span=2}{
+\begin{itemize}
+\begin{multicols}{2}
+\item $ds(\mathbf x_{\perp}, \eta)/d\eta$ modelled by parametrising its first 3 cumulants in terms of nuclear participant densities $T_A(\mathbf x_{\perp}), T_B(\mathbf x_{\perp})$.
+\item Two parametrisations calibrated with $dN/d\eta$ and selected by $\sqrt{\langle a_1^2\rangle}$. Relative-skew model is preferable to absolute-skew model.
+\item Relative-skew model + hybrid model well reproduce, $v_n(\eta)$ and event-plane decorrelations $r_n$.
+\item 
+\begin{mdframed}[hidealllines=true, backgroundcolor=orange!30]
+$v_n(\eta)$ and $r_n$ are sensitive to longitudinal evolution of transverse structure.
+A model trained on multiplicity observables only can reproduce $v_n(\eta)$ and $r_n$ are therefore non-trivial.
+Indicate that the calibrated relative-skew initial condition model has a reasonable description of local longitudinal fluctuation.
+\end{mdframed}
+\end{multicols}
+\end{itemize}
+}
+
+
+%----------------------------------------------------------------------------------------
+%   REFERENCES
+%----------------------------------------------------------------------------------------
+
+%\headerbox{References}{name=references,column=2,below=application}{
+
+%\smaller % Reduce the font size in this block
+%\renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+%\nocite{*} % Insert publications even if they are not cited in the poster
+
+%\bibliographystyle{unsrt}
+%\bibliographystyle{IEEEtran}
+%\bibliography{biblio} % Use biblio.bib as the bibliography file
+%}
+
+\end{poster}
+
+\end{document}
+              

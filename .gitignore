@@ -1,0 +1,7 @@
+*.pdf
+*.png
+*~
+figures/svg
+figures/data
+build
+baposter*
